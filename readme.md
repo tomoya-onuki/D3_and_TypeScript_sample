@@ -11,7 +11,7 @@
 ### 時刻データ
 - [Line Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1a_LineChart)
 - [Line Chart (Small Multiples)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1b_LineChart)
-- Line Chart (Super Position)
+- Line Chart (Superposition)
 - Area Chart
 - Staked Area Chart
 - Blaided Graph
