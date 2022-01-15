@@ -15,17 +15,10 @@ let marginLeft: number = 50;
 
 function init(): void {
 
-
-    // SVGの設定
-    const svg: any = d3.select("body")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
     // データの読み込み
     d3.csv("../data/newly_confirmed_cases_daily.csv")
         .then((data) => {
-            draw(svg, data);
+            draw(data);
         })
         .catch((error) => {
             console.log(error)
@@ -33,20 +26,26 @@ function init(): void {
 }
 
 
-function draw(svg: any, data: DSVRowArray): void {
+function draw(data: DSVRowArray): void {
 
     let chartWidth: number = width - marginLeft - marginRight;
     let chartHeight: number = height - marginTop - marginBottom;
 
+    // SVGの設定
+    const svg: any = d3.select("body")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
     // x axis
     let xScale: any = d3.scaleTime()
-        .domain(<any>d3.extent(data, function(d) { return new Date(String(d.Date)); }))
+        .domain(<any>d3.extent(data, function (d) { return new Date(String(d.Date)); }))
         .range([0, chartWidth]);
     svg.append("g")
-        .attr("transform", "translate(" + marginLeft + "," + Number(marginTop+chartHeight) + ")")
+        .attr("transform", "translate(" + marginLeft + "," + Number(marginTop + chartHeight) + ")")
         .call(
             d3.axisBottom(xScale)
-            .tickFormat(<any>d3.timeFormat("%y/%m/%d"))
+                .tickFormat(<any>d3.timeFormat("%y/%m/%d"))
         );
 
 
@@ -61,11 +60,11 @@ function draw(svg: any, data: DSVRowArray): void {
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
         .call(d3.axisLeft(yScale));
 
-    
+
     // 折線
     const line: any = d3.line()
-        .x((d: any) => xScale( new Date(String(d.Date)) ))
-        .y((d: any) => yScale( Number(d.ALL) ));
+        .x((d: any) => xScale(new Date(String(d.Date))))
+        .y((d: any) => yScale(Number(d.ALL)));
 
     // 描画
     svg.append("path")
@@ -75,6 +74,6 @@ function draw(svg: any, data: DSVRowArray): void {
         .attr("stroke", "steelblue")
         .attr("stroke-width", 1.5)
         .attr("d", line);
-        
+
 
 }
