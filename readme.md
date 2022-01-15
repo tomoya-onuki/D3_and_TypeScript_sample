@@ -7,6 +7,7 @@
 # D3.js + TypeScriptによる可視化サンプル
 
 ## サンプル集
+
 #### 時刻データ
 - [Line Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1a_LineChart)
 - Line Chart (Juxtaposition)
@@ -42,7 +43,7 @@
 - Icicle diagram
 - Sunburst diagram
 
-### e. 地理データ
+### 地理データ
 
 
 ## Setup
