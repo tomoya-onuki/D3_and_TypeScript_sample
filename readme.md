@@ -8,7 +8,7 @@
 
 ## サンプル集
 
-#### 時刻データ
+### 時刻データ
 - [Line Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1a_LineChart)
 - Line Chart (Juxtaposition)
 - Line Chart (Super Position)
