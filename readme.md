@@ -7,12 +7,43 @@
 # D3.js + TypeScriptによる可視化サンプル
 
 ## サンプル集
+#### a. 時刻データ
 1. Line Chart
-2. Small Multiples (Line Chart)
-3. Small Multiples (Tile Map)
-4. Blaided Graph
-5. Horizon Graph
-6. SuperpositionとのExplictEncodingの併用
+2. Line Chart (Juxtaposition)
+3. Line Chart (Super Position)
+4. Area Chart
+5. Staked Area Chart
+6. Blaided Graph
+7. Horizon Graph
+8. Two-Tone Pseudo Coloring
+9. Stream Graph
+10. Theme River
+
+### b. 多変量量的データ 
+1. Scatter Plot
+2. Panel Matrix
+3. Scatter Plot Matrix
+4. Bubble Chart
+5. Radar Chart
+6. Parallel Coordinates
+7. Parallel Sets
+8. Mosaic Plot
+
+### c. 多変量質的データ
+1. Bar Chart
+2. Pie Chart
+3. Staked Bar Chart
+4. Heat Map (Tile Map)
+5. Tile Map (Small Multiples)
+
+### d. 階層データ
+1. Tree Map
+2. Dendrogram
+3. Icicle diagram
+4. Sunburst diagram
+
+### e. 地理データ
+
 
 ## Setup
 1. package.jsonの作成
