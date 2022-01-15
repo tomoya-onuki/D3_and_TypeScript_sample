@@ -6,8 +6,8 @@ window.addEventListener('load', () => {
     init();
 }, false);
 
-let width: number = 400;
-let height: number = 400;
+let width: number = 600;
+let height: number = 600;
 let marginTop: number = 50;
 let marginRight: number = 50;
 let marginBottom: number = 50;
@@ -23,17 +23,15 @@ function init(): void {
         .attr("height", height);
 
     // データの読み込み
-    // d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/5_OneCatSevNumOrdered.csv")
-    d3.csv("../data/temperature.csv")
+    d3.csv("../data/newly_confirmed_cases_daily.csv")
         .then((data) => {
             draw(svg, data);
-            // console.log(data);
-
         })
         .catch((error) => {
             console.log(error)
         });
 }
+
 
 function draw(svg: any, data: DSVRowArray): void {
 
@@ -41,30 +39,35 @@ function draw(svg: any, data: DSVRowArray): void {
     let chartHeight: number = height - marginTop - marginBottom;
 
     // x axis
-    let xScale: any = d3.scaleLinear()
-        .domain([1, 12])
+    let xScale: any = d3.scaleTime()
+        .domain(<any>d3.extent(data, function(d) { return new Date(String(d.Date)); }))
         .range([0, chartWidth]);
     svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + Number(marginTop+chartHeight) + ")")
-        .call(d3.axisBottom(xScale));
+        .call(
+            d3.axisBottom(xScale)
+            .tickFormat(<any>d3.timeFormat("%y/%m/%d"))
+        );
 
 
     // y axis
     let yScale: any = d3.scaleLinear()
         .domain([
-            Number(d3.min(data, function (d) { return +Number(d.temp) })),
-            Number(d3.max(data, function (d) { return +Number(d.temp) }))
+            0,
+            Number(d3.max(data, function (d) { return +Number(d.ALL) }))
         ])
         .range([chartHeight, 0]);
     svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
         .call(d3.axisLeft(yScale));
 
-
+    
+    // 折線
     const line: any = d3.line()
-        .x((d: any) => xScale(d.month))
-        .y((d: any) => yScale(d.temp));
+        .x((d: any) => xScale( new Date(String(d.Date)) ))
+        .y((d: any) => yScale( Number(d.ALL) ));
 
+    // 描画
     svg.append("path")
         .datum(data)
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
