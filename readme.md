@@ -7,40 +7,40 @@
 # D3.js + TypeScriptによる可視化サンプル
 
 ## サンプル集
-#### a. 時刻データ
-1. [Line Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1a_LineChart)
-2. Line Chart (Juxtaposition)
-3. Line Chart (Super Position)
-4. Area Chart
-5. Staked Area Chart
-6. Blaided Graph
-7. Horizon Graph
-8. Two-Tone Pseudo Coloring
-9. Stream Graph
-10. Theme River
+#### 時刻データ
+- [Line Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1a_LineChart)
+- Line Chart (Juxtaposition)
+- Line Chart (Super Position)
+- Area Chart
+- Staked Area Chart
+- Blaided Graph
+- Horizon Graph
+- Two-Tone Pseudo Coloring
+- Stream Graph
+- Theme River
 
-### b. 多変量量的データ 
-1. Scatter Plot
-2. Panel Matrix
-3. Scatter Plot Matrix
-4. Bubble Chart
-5. Radar Chart
-6. Parallel Coordinates
-7. Parallel Sets
-8. Mosaic Plot
+### 多変量量的データ 
+- Scatter Plot
+- Panel Matrix
+- Scatter Plot Matrix
+- Bubble Chart
+- Radar Chart
+- Parallel Coordinates
+-  Parallel Sets
+- Mosaic Plot
 
-### c. 多変量質的データ
-1. Bar Chart
-2. Pie Chart
-3. Staked Bar Chart
-4. Heat Map (Tile Map)
-5. Tile Map (Small Multiples)
+### 多変量質的データ
+- Bar Chart
+- Pie Chart
+- Staked Bar Chart
+- Heat Map (Tile Map)
+- Tile Map (Small Multiples)
 
-### d. 階層データ
-1. Tree Map
-2. Dendrogram
-3. Icicle diagram
-4. Sunburst diagram
+### 階層データ
+- Tree Map
+- Dendrogram
+- Icicle diagram
+- Sunburst diagram
 
 ### e. 地理データ
 
