@@ -8,7 +8,7 @@
 
 ## サンプル集
 #### a. 時刻データ
-1. Line Chart
+1. [Line Chart](./1a_LineChart)
 2. Line Chart (Juxtaposition)
 3. Line Chart (Super Position)
 4. Area Chart
