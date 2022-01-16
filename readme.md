@@ -6,7 +6,7 @@
 
 # D3.js + TypeScriptによる可視化サンプル
 
-## 1a Line Chart
+## 1d Area Chart
 - 新型コロナウイルスの**全国における新規陽性者数の日別推移データ**を面グラフで可視化する。
 - データ入手先: https://www.mhlw.go.jp/stf/covid-19/open-data.html
 - 全国のデータはALLの列
