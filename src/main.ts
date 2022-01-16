@@ -9,9 +9,9 @@ window.addEventListener('load', () => {
 let width: number = 120;
 let height: number = 120;
 let marginTop: number = 20;
-let marginRight: number = 20;
+let marginRight: number = 0;
 let marginBottom: number = 30;
-let marginLeft: number = 20;
+let marginLeft: number = 40;
 
 function init(): void {
 
@@ -35,7 +35,15 @@ function draw(data: DSVRowArray): void {
     let keys: string[] = Object.keys(data[0]);
 
     // 最大値を求める (これをしないと縦軸のスケールが揃わない)
-    let max: number = Number(d3.max(data, (d) => d.ALL));
+    let max: number = 0;
+    keys.forEach(key => {
+        if (key != 'ALL' && key != 'Date') {
+            let tmp: number = Number(d3.max(data, (d) => +Number(d[key])));
+            if (tmp > max) {
+                max = tmp;
+            }
+        }
+    })
 
     keys.forEach(key => {
 
@@ -46,10 +54,6 @@ function draw(data: DSVRowArray): void {
                 .append("svg")
                 .attr("width", width)
                 .attr("height", height);
-
-            data.forEach((d: any) => {
-                console.log(d[key]);
-            });
 
             // x axis
             let xScale: any = d3.scaleTime()
@@ -67,7 +71,7 @@ function draw(data: DSVRowArray): void {
                 .attr("text-anchor", "end")
                 .attr("font-size", "7px")
                 .attr("font-family", "Arial")
-                .attr("x", "-1")
+                .attr("x", "-5")
                 .attr("y", "1")
                 .attr("transform", "rotate(-45)");
 
@@ -100,10 +104,11 @@ function draw(data: DSVRowArray): void {
                 .attr("stroke", "steelblue")
                 .attr("stroke-width", 1.5)
                 .attr("d", line);
-
+                    
+            // ラベル
             svg.append("text")
                 .attr("text-anchor", "start")
-                .attr("y", 20)
+                .attr("y", 15)
                 .attr("x", 15)
                 .attr("font-size", "10px")
                 .attr("font-family", "Arial")
