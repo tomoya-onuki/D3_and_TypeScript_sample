@@ -6,8 +6,8 @@
 
 # D3.js + TypeScriptによる可視化サンプル
 
-## 1b Line Chart (Small Multiples)
-- 新型コロナウイルスの**都道府県ごとの新規陽性者数の日別推移データ**を異なる折れ線グラフで可視化し並べる。
+## 1c Line Chart (Superposition)
+- 新型コロナウイルスの**都道府県ごとの新規陽性者数の日別推移データ**を折れ線グラフで可視化し単一のビューにまとめる。
 - データ入手先: https://www.mhlw.go.jp/stf/covid-19/open-data.html
 
 | Date      | ALL    | Hokkaido  | ... |
@@ -16,4 +16,4 @@
 | 2020/1/17 |  0     |  0        | ... |
 | ...       | ...    | ...       | ... |
 
-<img src="./img/1b_LineChart.png" width="100%">
+<img src="./img/1c_LineChart.png" width="100%">
