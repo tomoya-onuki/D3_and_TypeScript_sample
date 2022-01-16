@@ -40,7 +40,12 @@ function draw(data: DSVRowArray): void {
     
     // 使うキー
     const keys: string[] = ["Tokyo", "Saitama", "Kanagawa", "Chiba", "Tochigi", "Gunma", "Ibaraki"];
-    
+    // const braidedData
+    data.forEach((d: DSVRowString, idx: number) => {
+        keys.forEach(key => {
+            d[key];
+        });
+    });
 
     
     
