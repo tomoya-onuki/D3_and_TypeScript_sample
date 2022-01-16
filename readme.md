@@ -14,10 +14,10 @@
 - [Line Chart (Superposition)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1c_LineChart)
 - [Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1d_AreaChart)
 - [Staked Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1e_StakedAreaChart)
+- [Stream Graph](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/blob/1f_StreamGraph/readme.md)
 - Blaided Graph
 - Horizon Graph
 - Two-Tone Pseudo Coloring
-- Stream Graph
 - Theme River
 
 ### 多変量量的データ 
