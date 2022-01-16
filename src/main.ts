@@ -41,8 +41,7 @@ function draw(data: DSVRowArray): void {
     // 使うキー
     const keys: string[] = ["Tokyo", "Saitama", "Kanagawa", "Chiba", "Tochigi", "Gunma", "Ibaraki"];
     const stakedData: any = d3.stack()
-        // .offset(d3.stackOffsetWiggle)
-        .offset(d3.stackOffsetSilhouette) // これでいいはず
+        .offset(d3.stackOffsetWiggle)
         .keys(keys)(<any>data);
 
     // 一番上に積み上げられたデータの最大値,最小値
@@ -64,8 +63,6 @@ function draw(data: DSVRowArray): void {
     let yLabel: any = svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
         .call(d3.axisLeft(yScale));
-    yLabel.selectAll("text")
-        .attr("display", "none")
 
     const colorScale = d3.scaleOrdinal()
         .domain(keys)
