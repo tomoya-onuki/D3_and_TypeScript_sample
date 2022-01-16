@@ -62,18 +62,19 @@ function draw(data: DSVRowArray): void {
 
 
     // 折線
-    const line: any = d3.line()
+    const area: any = d3.area()
         .x((d: any) => xScale(new Date(String(d.Date))))
-        .y((d: any) => yScale(Number(d.ALL)));
+        .y0(yScale(0))
+        .y1((d: any) => yScale(Number(d.ALL)));
 
     // 描画
     svg.append("path")
         .datum(data)
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
-        .attr("fill", "none")
-        .attr("stroke", "steelblue")
+        .attr("stroke", "none")
+        .attr("fill", "steelblue")
         .attr("stroke-width", 1.5)
-        .attr("d", line);
+        .attr("d", area);
 
 
 }
