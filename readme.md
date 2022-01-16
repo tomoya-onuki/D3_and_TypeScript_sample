@@ -107,8 +107,14 @@ module.exports = {
 ```
 npm run build
 ```
+or
+```
+mac: Shift + Command + B
+win: Shift + Control + B
+```
 
 7. 実行
-```
-live server でGoLiveする
-```
+live serverでGoLiveし、index.htmlを開く  
+以下のような折れ線グラフが表示されれば成功
+
+<img src="./img/sample.png" width="50%">
