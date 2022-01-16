@@ -41,7 +41,7 @@ function draw(data: DSVRowArray): void {
     // 使うキー
     const keys: string[] = ["Tokyo", "Saitama", "Kanagawa", "Chiba", "Tochigi", "Gunma", "Ibaraki"];
     const stakedData: any = d3.stack()
-        .offset(d3.stackOffsetWiggle)
+        .offset(d3.stackOffsetSilhouette)
         .keys(keys)(<any>data);
 
     // 一番上に積み上げられたデータの最大値,最小値
