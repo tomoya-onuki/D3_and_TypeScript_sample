@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { DSVRowArray, DSVRowString, group, stack } from 'd3';
+import { DSVRowArray, DSVRowString, group, stack, text } from 'd3';
 
 
 window.addEventListener('load', () => {
@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
 let width: number = 600;
 let height: number = 600;
 let marginTop: number = 50;
-let marginRight: number = 50;
+let marginRight: number = 20;
 let marginBottom: number = 50;
 let marginLeft: number = 50;
 
@@ -40,32 +40,35 @@ function draw(data: DSVRowArray): void {
     // 積み上げデータの生成
     // 使うキー
     const keys: string[] = ["Tokyo", "Saitama", "Kanagawa", "Chiba", "Tochigi", "Gunma", "Ibaraki"];
-    const stakedData: any = d3.stack().keys(keys)(<any>data);
+    const stakedData: any = d3.stack()
+        .offset(d3.stackOffsetSilhouette)
+        .keys(keys)(<any>data);
 
-    // 一番上に積み上げられたデータの最大値
-    let max:number = Number( d3.max(stakedData[keys.length - 1], (d: any) => +Number(d[1])) );
+    // 一番上に積み上げられたデータの最大値,最小値
+    let max: number = Number(d3.max(stakedData[keys.length - 1], (d: any) => +Number(d[1])));
 
     // x axis
     let xScale: any = d3.scaleTime()
         .domain(<any>d3.extent(data, (d) => new Date(String(d.Date))))
         .range([0, chartWidth]);
-    svg.append("g")
+    let xLabel: any = svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + Number(marginTop + chartHeight) + ")")
         .call(d3.axisBottom(xScale).tickFormat(<any>d3.timeFormat("%y/%m/%d")));
 
 
     // y axis
     let yScale: any = d3.scaleLinear()
-        .domain([ 0, max ])
+        .domain([-max, max])
         .range([chartHeight, 0]);
-    svg.append("g")
+    let yLabel: any = svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
         .call(d3.axisLeft(yScale));
+    yLabel.selectAll("text")
+        .attr("display", "none")
 
     const colorScale = d3.scaleOrdinal()
         .domain(keys)
-        // .range(['#3261AB', '#D5E0F1']);
-        .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628']);
+        .range(['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628']);
 
     // 面を作成
     const area: any = d3.area()
@@ -77,9 +80,9 @@ function draw(data: DSVRowArray): void {
     svg.selectAll("mylayers")
         .data(stakedData)
         .join("path")
-            .style("fill", (d: any) => colorScale(d.key))
-            .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
-            .attr("d", area);
+        .style("fill", (d: any) => colorScale(d.key))
+        .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
+        .attr("d", area);
 
 
 }
