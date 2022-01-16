@@ -34,6 +34,17 @@ function draw(data: DSVRowArray): void {
     // キーを取り出す
     let keys: string[] = Object.keys(data[0]);
 
+    // 全体の最大値(全国は除く)を求める
+    let max: number = 0;
+    keys.forEach(key => {
+        if (key != 'ALL' && key != 'Date') {
+            let tmp: number = Number(d3.max(data, (d) => +Number(d[key])));
+            if (tmp > max) {
+                max = tmp;
+            }
+        }
+    });
+
 
     // SVGの設定
     const svg: any = d3.select("body")
@@ -63,7 +74,7 @@ function draw(data: DSVRowArray): void {
 
     // y axis
     let yScale: any = d3.scaleLinear()
-        .domain([0, Number(d3.max(data, (d) => d.ALL))])
+        .domain([0, max])
         .range([chartHeight, 0]);
 
     const yAxis: any = svg.append("g")
@@ -80,7 +91,7 @@ function draw(data: DSVRowArray): void {
 
 
 
-    let labelY: number = marginTop; 
+    let labelY: number = marginTop;
     let i: number = 0;
     keys.forEach(key => {
         if (key != 'ALL' && key != 'Date') {
@@ -92,7 +103,6 @@ function draw(data: DSVRowArray): void {
 
             const color: string = "hsla(" + String(360 / keys.length * i) + ", 100%, 75%, 1.0)";
             i++;
-            console.log(color);
 
             // 描画
             let path: any = svg.append("path")
@@ -105,7 +115,7 @@ function draw(data: DSVRowArray): void {
 
             svg.append("text")
                 .attr("text-anchor", "start")
-                .attr("y", labelY+=11)
+                .attr("y", labelY += 11)
                 .attr("x", marginLeft + chartWidth + 20)
                 .attr("fill", color)
                 .attr("font-size", "10px")

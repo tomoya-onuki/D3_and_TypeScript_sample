@@ -16,4 +16,4 @@
 | 2020/1/17 |  0     |  0        | ... |
 | ...       | ...    | ...       | ... |
 
-<img src="./img/1c_LineChart.png" width="100%">
+<img src="./img/1c_LineChart.png" width="50%">
