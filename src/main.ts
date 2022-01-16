@@ -39,29 +39,23 @@ function draw(data: DSVRowArray): void {
 
     // x axis
     let xScale: any = d3.scaleTime()
-        .domain(<any>d3.extent(data, function (d) { return new Date(String(d.Date)); }))
+        .domain(<any>d3.extent(data, (d) => new Date(String(d.Date)) ))
         .range([0, chartWidth]);
     svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + Number(marginTop + chartHeight) + ")")
-        .call(
-            d3.axisBottom(xScale)
-                .tickFormat(<any>d3.timeFormat("%y/%m/%d"))
-        );
+        .call(d3.axisBottom(xScale).tickFormat(<any>d3.timeFormat("%y/%m/%d")));
 
 
     // y axis
     let yScale: any = d3.scaleLinear()
-        .domain([
-            0,
-            Number(d3.max(data, function (d) { return +Number(d.ALL) }))
-        ])
+        .domain([ 0, Number(d3.max(data, (d) => +Number(d.ALL) )) ])
         .range([chartHeight, 0]);
     svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
         .call(d3.axisLeft(yScale));
 
 
-    // 折線
+    // 面
     const area: any = d3.area()
         .x((d: any) => xScale(new Date(String(d.Date))))
         .y0(yScale(0))
