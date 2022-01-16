@@ -37,15 +37,13 @@ function draw(data: DSVRowArray): void {
         .attr("width", width)
         .attr("height", height);
 
-    // 積み上げデータの生成
+    
     // 使うキー
     const keys: string[] = ["Tokyo", "Saitama", "Kanagawa", "Chiba", "Tochigi", "Gunma", "Ibaraki"];
-    const stakedData: any = d3.stack()
-        .offset(d3.stackOffsetWiggle)
-        .keys(keys)(<any>data);
+    
 
-    // 一番上に積み上げられたデータの最大値,最小値
-    let max: number = Number(d3.max(stakedData[keys.length - 1], (d: any) => +Number(d[1])));
+    
+    
 
     // x axis
     let xScale: any = d3.scaleTime()
@@ -58,7 +56,7 @@ function draw(data: DSVRowArray): void {
 
     // y axis
     let yScale: any = d3.scaleLinear()
-        .domain([-max, max])
+        .domain([0, 1000])
         .range([chartHeight, 0]);
     let yLabel: any = svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
@@ -78,7 +76,7 @@ function draw(data: DSVRowArray): void {
 
     // 描画
     svg.selectAll("mylayers")
-        .data(stakedData)
+        .data(data)
         .join("path")
         .style("fill", (d: any) => colorScale(d.key))
         .style("stroke", (d: any) => colorScale(d.key))
