@@ -63,6 +63,8 @@ function draw(data: DSVRowArray): void {
     let yLabel: any = svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
         .call(d3.axisLeft(yScale));
+    yLabel.selectAll("text")
+        .attr("display", "none");
 
     const colorScale = d3.scaleOrdinal()
         .domain(keys)
