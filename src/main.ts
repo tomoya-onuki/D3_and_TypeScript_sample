@@ -41,7 +41,8 @@ function draw(data: DSVRowArray): void {
     // 使うキー
     const keys: string[] = ["Tokyo", "Saitama", "Kanagawa", "Chiba", "Tochigi", "Gunma", "Ibaraki"];
     const stakedData: any = d3.stack()
-        .offset(d3.stackOffsetSilhouette)
+        // .offset(d3.stackOffsetWiggle)
+        .offset(d3.stackOffsetSilhouette) // これでいいはず
         .keys(keys)(<any>data);
 
     // 一番上に積み上げられたデータの最大値,最小値
@@ -68,8 +69,8 @@ function draw(data: DSVRowArray): void {
 
     const colorScale = d3.scaleOrdinal()
         .domain(keys)
-        .range(['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628']);
-
+        .range(["#007FB1", "#3261AB", "#009F8C", "#6A8CC7", "#44A5CB", "#40BFB0", "#99CFE5"]);
+        
     // 面を作成
     const area: any = d3.area()
         .x((d: any) => xScale(new Date(String(d.data.Date))))
@@ -81,8 +82,10 @@ function draw(data: DSVRowArray): void {
         .data(stakedData)
         .join("path")
         .style("fill", (d: any) => colorScale(d.key))
+        .style("stroke", (d: any) => colorScale(d.key))
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
         .attr("d", area);
 
 
 }
+
