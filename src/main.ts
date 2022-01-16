@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { DSVRowArray, DSVRowString } from 'd3';
+import { DSVRowArray, DSVRowString, group, stack } from 'd3';
 
 
 window.addEventListener('load', () => {
@@ -37,44 +37,49 @@ function draw(data: DSVRowArray): void {
         .attr("width", width)
         .attr("height", height);
 
+    // 積み上げデータの生成
+    // 使うキー
+    const keys: string[] = ["Tokyo", "Saitama", "Kanagawa", "Chiba", "Tochigi", "Gunma", "Ibaraki"];
+    const stakedData: any = d3.stack().keys(keys)(<any>data);
+
+    // 一番上に積み上げられたデータの最大値
+    let max:number = Number( d3.max(stakedData[keys.length - 1], (d: any) => +Number(d[1])) );
+
     // x axis
     let xScale: any = d3.scaleTime()
-        .domain(<any>d3.extent(data, function (d) { return new Date(String(d.Date)); }))
+        .domain(<any>d3.extent(data, (d) => new Date(String(d.Date))))
         .range([0, chartWidth]);
     svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + Number(marginTop + chartHeight) + ")")
-        .call(
-            d3.axisBottom(xScale)
-                .tickFormat(<any>d3.timeFormat("%y/%m/%d"))
-        );
+        .call(d3.axisBottom(xScale).tickFormat(<any>d3.timeFormat("%y/%m/%d")));
 
 
     // y axis
     let yScale: any = d3.scaleLinear()
-        .domain([
-            0,
-            Number(d3.max(data, function (d) { return +Number(d.ALL) }))
-        ])
+        .domain([ 0, max ])
         .range([chartHeight, 0]);
     svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
         .call(d3.axisLeft(yScale));
 
+    const colorScale = d3.scaleOrdinal()
+        .domain(keys)
+        // .range(['#3261AB', '#D5E0F1']);
+        .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628']);
 
-    // 折線
+    // 面を作成
     const area: any = d3.area()
-        .x((d: any) => xScale(new Date(String(d.Date))))
-        .y0(yScale(0))
-        .y1((d: any) => yScale(Number(d.ALL)));
+        .x((d: any) => xScale(new Date(String(d.data.Date))))
+        .y0((d: any) => yScale(Number(d[0])))
+        .y1((d: any) => yScale(Number(d[1])));
 
     // 描画
-    svg.append("path")
-        .datum(data)
-        .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
-        .attr("stroke", "none")
-        .attr("fill", "steelblue")
-        .attr("stroke-width", 1.5)
-        .attr("d", area);
+    svg.selectAll("mylayers")
+        .data(stakedData)
+        .join("path")
+            .style("fill", (d: any) => colorScale(d.key))
+            .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
+            .attr("d", area);
 
 
 }
