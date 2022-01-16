@@ -13,7 +13,7 @@
 - [Line Chart (Small Multiples)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1b_LineChart)
 - [Line Chart (Superposition)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1c_LineChart)
 - [Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1d_AreaChart)
-- Staked Area Chart
+- [Staked Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1e_StakedAreaChart)
 - Blaided Graph
 - Horizon Graph
 - Two-Tone Pseudo Coloring
