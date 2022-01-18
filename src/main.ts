@@ -6,9 +6,9 @@ window.addEventListener('load', () => {
     init();
 }, false);
 
-let width: number = 500;
-let height: number = 100;
-let marginTop: number = 10;
+let width: number = 600;
+let height: number = 60;
+let marginTop: number = 0;
 let marginRight: number = 20;
 let marginBottom: number = 20;
 let marginLeft: number = 10;
@@ -65,9 +65,11 @@ function draw(data: DSVRowArray): void {
             let xScale: any = d3.scaleTime()
                 .domain(term)
                 .range([0, chartWidth]);
+
             svg.append("g")
                 .attr("transform", "translate(" + marginLeft + "," + Number(marginTop + chartHeight) + ")")
-                .call(d3.axisBottom(xScale).ticks(10).tickFormat(<any>d3.timeFormat("%y/%m/%d")).tickSize(1));
+                .call(d3.axisBottom(xScale).ticks(12).tickFormat(<any>d3.timeFormat("%y/%m/%d")).tickSize(1));
+
 
 
             // y axis
@@ -101,7 +103,7 @@ function draw(data: DSVRowArray): void {
                         .text("・" + String(Math.floor(i * vAxisMax)) + " ~ " + String(Math.floor((i + 1) * vAxisMax)));
                 }
 
-                
+
 
                 // 面
                 const area: any = d3.area()
