@@ -64,7 +64,8 @@ function draw(data: DSVRowArray): void {
 
     const colorScale = d3.scaleOrdinal()
         .domain(keys)
-        .range(["#007FB1", "#3261AB", "#009F8C", "#6A8CC7", "#44A5CB", "#40BFB0", "#99CFE5"]);
+        .range(["#99CFE5", "#40BFB0", "#44A5CB", "#6A8CC7", "#009F8C", "#3261AB", "#007FB1"]);
+        // .range(["#007FB1", "#3261AB", "#009F8C", "#6A8CC7", "#44A5CB", "#40BFB0", "#99CFE5"]);
 
     // 面を作成
     const area: any = d3.area()
