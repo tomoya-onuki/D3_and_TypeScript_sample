@@ -39,7 +39,7 @@ function draw(data: DSVRowArray): void {
 
     // 積み上げデータの生成
     // 使うキー
-    const keys: string[] = ["Tokyo", "Saitama", "Kanagawa", "Chiba", "Tochigi", "Gunma", "Ibaraki"];
+    const keys: string[] = [ "Tochigi", "Gunma", "Ibaraki", "Chiba", "Kanagawa", "Saitama", "Tokyo"];
     const stakedData: any = d3.stack().keys(keys)(<any>data);
 
     // 一番上に積み上げられたデータの最大値
