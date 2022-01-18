@@ -17,7 +17,7 @@
 - [Stream Graph](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/blob/1f_StreamGraph/readme.md)
 - [Theme River](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1g_ThemeRiver)
 - Blaided Graph
-- Horizon Graph
+- [Horizon Graph](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1i_HorizonGraph)
 - Two-Tone Pseudo Coloring
 
 
