@@ -128,8 +128,8 @@ function braided(data: DSVRowArray, keys: string[]): string[][][] {
         // keyを昇順にソートする
         for (let i = 0; i < keys.length - 1; i++) {
             for (let j = i + 1; j < keys.length; j++) {
-                console.log(Number(d[keys[i]]), Number(d[keys[j]]), Number(d[keys[i]]) - Number(d[keys[j]]))
-                console.log(keys[i], keys[j]);
+                // console.log(Number(d[keys[i]]), Number(d[keys[j]]), Number(d[keys[i]]) - Number(d[keys[j]]))
+                // console.log(keys[i], keys[j]);
                 
                 if (Number(d[keys[i]]) - Number(d[keys[j]]) < 0) {
                     let tmp: string = d[keys[i]];
@@ -139,8 +139,6 @@ function braided(data: DSVRowArray, keys: string[]): string[][][] {
                     let tmp1: string = keys[i];
                     keys[i] = keys[j];
                     keys[j] = tmp1;
-
-                    console.log("convert")
                 }
                 
             }
@@ -168,6 +166,15 @@ function braided(data: DSVRowArray, keys: string[]): string[][][] {
             newData[j][i][0] = String(data[i].Date);
             newData[j][i][1] = key;
             newData[j][i][2] = String(data[i][key]);
+
+            // 編み込みの交点を求める
+            if (j + 1 < keys.length && i + 1 < keysList.length) {
+                if (key != keys[j+1]) {
+                    
+                }
+            }
+
+
         });
     });
 
