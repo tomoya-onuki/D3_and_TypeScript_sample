@@ -118,7 +118,7 @@ mac: Shift + Command + B
 win: Shift + Control + B
 ```
 
-7. 実行
+7. 実行  
 live serverでGoLiveし、index.htmlを開く  
 以下のような折れ線グラフが表示されれば成功
 
