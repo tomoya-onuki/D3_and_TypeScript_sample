@@ -93,7 +93,7 @@ function draw(data: DSVRowArray): void {
     keys.forEach((key, i) => {
         svg.append("text")
             .attr("text-anchor", "start")
-            .attr("y", marginTop + 18 * (i+1))
+            .attr("y", marginTop + 16 * (i+1))
             .attr("x", marginLeft + 20)
             .attr("font-size", "15px")
             .attr("font-family", "Arial")
