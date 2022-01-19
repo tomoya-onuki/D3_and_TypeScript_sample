@@ -9,11 +9,11 @@
 ## サンプル集
 
 ### a. 時刻データ
-1. [Line Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a1_LineChart)
-1. [Line Chart (Small Multiples)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a2_LineChart)
-1. [Line Chart (Superposition)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a3_LineChart)
-1. [Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a4_AreaChart)
-1. [Stacked Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a5_StackedAreaChart)
+1. [折れ線グラフ / Line Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a1_LineChart)
+1. [折れ線グラフ / Line Chart (Small Multiples)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a2_LineChart)
+1. [折れ線グラフ / Line Chart (Superposition)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a3_LineChart)
+1. [面グラフ / Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a4_AreaChart)
+1. [積み上げ面グラフ / Stacked Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a5_StackedAreaChart)
 1. [Stream Graph](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/blob/a6_StreamGraph/readme.md)
 1. [Theme River](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a7_ThemeRiver)
 1. [Horizon Graph](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a8_HorizonGraph)
@@ -22,9 +22,9 @@
 
 
 ### b. 多変量量的データ 
-1. Scatter Plot
-1. Panel Matrix
-1. Scatter Plot Matrix
+1. 散布図 / Scatter Plot
+1. パネル行列 / Panel Matrix
+1. 散布図 / Scatter Plot Matrix
 1. Bubble Chart
 1. Radar Chart
 1. Parallel Coordinates
@@ -32,8 +32,8 @@
 1. Mosaic Plot
 
 ### c. 多変量質的データ
-1. Bar Chart
-1. Pie Chart
+1. 棒グラフ / Bar Chart
+1. 円グラフ / Pie Chart
 1. Staked Bar Chart
 1. Heat Map (Tile Map)
 1. Tile Map (Small Multiples)
@@ -45,8 +45,8 @@
 1. Sunburst diagram
 
 ### e. 地理データ
-1. コロプレスマップ
-1. 計量記号図
+1. コロプレス地図 / choropleth map
+1. 計量記号図 / Graduated Symbol Map
 
 ### f. インタラクション
 1. Horizon Graph
