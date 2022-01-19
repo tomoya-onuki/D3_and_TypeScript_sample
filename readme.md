@@ -1,7 +1,7 @@
 ©︎ 2022 OnukiTomoya  
 
 作成：2022/1/15  
-更新：2022/1/16  
+更新：2022/1/19  
 
 
 # D3.js + TypeScriptによる可視化サンプル
@@ -13,7 +13,7 @@
 - [Line Chart (Small Multiples)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1b_LineChart)
 - [Line Chart (Superposition)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1c_LineChart)
 - [Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1d_AreaChart)
-- [Staked Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1e_StakedAreaChart)
+- [Stacked Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1e_StakedAreaChart)
 - [Stream Graph](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/blob/1f_StreamGraph/readme.md)
 - [Theme River](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1g_ThemeRiver)
 - Blaided Graph
