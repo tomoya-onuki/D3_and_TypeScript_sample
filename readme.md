@@ -8,44 +8,48 @@
 
 ## サンプル集
 
-### 時刻データ
-- [Line Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1a_LineChart)
-- [Line Chart (Small Multiples)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1b_LineChart)
-- [Line Chart (Superposition)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1c_LineChart)
-- [Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1d_AreaChart)
-- [Stacked Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1e_StakedAreaChart)
-- [Stream Graph](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/blob/1f_StreamGraph/readme.md)
-- [Theme River](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1g_ThemeRiver)
-- Blaided Graph
-- [Horizon Graph](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/1i_HorizonGraph)
-- Two-Tone Pseudo Coloring
+### a. 時刻データ
+1. [Line Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a1_LineChart)
+1. [Line Chart (Small Multiples)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a2_LineChart)
+1. [Line Chart (Superposition)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a3_LineChart)
+1. [Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a4_AreaChart)
+1. [Stacked Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a5_StakedAreaChart)
+1. [Stream Graph](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/blob/a6_StreamGraph/readme.md)
+1. [Theme River](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a7_ThemeRiver)
+1. [Horizon Graph](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a8_HorizonGraph)
+1. Blaided Graph
+1. Two-Tone Pseudo Coloring
 
 
-### 多変量量的データ 
-- Scatter Plot
-- Panel Matrix
-- Scatter Plot Matrix
-- Bubble Chart
-- Radar Chart
-- Parallel Coordinates
--  Parallel Sets
-- Mosaic Plot
+### b. 多変量量的データ 
+1. Scatter Plot
+1. Panel Matrix
+1. Scatter Plot Matrix
+1. Bubble Chart
+1. Radar Chart
+1. Parallel Coordinates
+1. Parallel Sets
+1. Mosaic Plot
 
-### 多変量質的データ
-- Bar Chart
-- Pie Chart
-- Staked Bar Chart
-- Heat Map (Tile Map)
-- Tile Map (Small Multiples)
+### c. 多変量質的データ
+1. Bar Chart
+1. Pie Chart
+1. Staked Bar Chart
+1. Heat Map (Tile Map)
+1. Tile Map (Small Multiples)
 
-### 階層データ
-- Tree Map
-- Dendrogram
-- Icicle diagram
-- Sunburst diagram
+### d. 階層データ
+1. Tree Map
+1. Dendrogram
+1. Icicle diagram
+1. Sunburst diagram
 
-### 地理データ
+### e. 地理データ
+1. コロプレスマップ
+1. 計量記号図
 
+### f. インタラクション
+1. Horizon Graph
 
 ## Setup
 1. package.jsonの作成
