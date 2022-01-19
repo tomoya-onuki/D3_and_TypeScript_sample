@@ -13,7 +13,7 @@
 1. [Line Chart (Small Multiples)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a2_LineChart)
 1. [Line Chart (Superposition)](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a3_LineChart)
 1. [Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a4_AreaChart)
-1. [Stacked Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a5_StakedAreaChart)
+1. [Stacked Area Chart](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a5_StackedAreaChart)
 1. [Stream Graph](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/blob/a6_StreamGraph/readme.md)
 1. [Theme River](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a7_ThemeRiver)
 1. [Horizon Graph](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/a8_HorizonGraph)
