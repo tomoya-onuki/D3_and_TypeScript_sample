@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="main.js"></script>
-    <title>Line Chart</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Horizon Graph</title>
 </head>
 <body>
-    
+    <div id="ui">
+        <div id="div_slider_label">分割数: 1</div>
+        <input id="div_slider" type="range" min="1" max="10" value="1" step="1">
+
+        <div id="width_slider_label">横幅: 600px</div>
+        <input id="width_slider" type="range" min="100" max="1200" value="600" step="1">
+
+        <div id="height_slider_label">縦幅: 60px</div>
+        <input id="height_slider" type="range" min="50" max="1200" value="60" step="1">
+    </div>
+    <div id="chart"></div>
 </body>
 </html>
