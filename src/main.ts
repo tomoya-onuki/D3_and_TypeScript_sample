@@ -27,10 +27,10 @@ class App {
     private marginLeft: number = 10;
 
     private keys: string[] = ["Tokyo", "Saitama", "Kanagawa", "Chiba", "Aichi", "Osaka", "Fukuoka", "Okinawa"];
-    // private keys: string[] = Object.keys(data[0]);
 
     constructor(data: DSVRowArray) {
         this.data = data;
+        // this.keys = Object.keys(data[0]);
     }
 
     public init(): void {
