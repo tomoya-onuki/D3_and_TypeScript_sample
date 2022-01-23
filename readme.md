@@ -24,7 +24,7 @@
 ### b. 多変量量的データ 
 1. 散布図 / Scatter Plot
 1. パネル行列 / Panel Matrix
-1. 散布図 / Scatter Plot Matrix
+1. 散布図行列 / Scatter Plot Matrix
 1. Bubble Chart
 1. Radar Chart
 1. Parallel Coordinates
