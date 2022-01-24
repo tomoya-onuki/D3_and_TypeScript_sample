@@ -6,15 +6,30 @@ window.addEventListener('load', () => {
     init();
 }, false);
 
-let width: number = 400;
-let height: number = 300;
+let width: number = 600;
+let height: number = 600;
 let marginTop: number = 50;
-let marginRight: number = 10;
+let marginRight: number = 50;
 let marginBottom: number = 50;
-let marginLeft: number = 70;
+let marginLeft: number = 50;
 
 function init(): void {
 
+    // データの読み込み
+    d3.csv("../data/newly_confirmed_cases_daily.csv")
+        .then((data) => {
+            draw(data);
+        })
+        .catch((error) => {
+            console.log(error)
+        });
+}
+
+
+function draw(data: DSVRowArray): void {
+
+    let chartWidth: number = width - marginLeft - marginRight;
+    let chartHeight: number = height - marginTop - marginBottom;
 
     // SVGの設定
     const svg: any = d3.select("body")
@@ -22,57 +37,37 @@ function init(): void {
         .attr("width", width)
         .attr("height", height);
 
-    // データの読み込み
-    d3.csv("../data/newly_confirmed_severe_cases_20220123.csv")
-        .then((data) => {
-            draw(svg, data);
-        })
-        .catch((error) => {
-            console.log(error)
-        });
-}
-
-function draw(svg: any, data: DSVRowArray): void {
-
-    let chartWidth: number = width - marginLeft - marginRight;
-    let chartHeight: number = height - marginTop - marginBottom;
-
     // x axis
-    let xScale: any = d3.scaleLinear()
-        .domain(<Number[]>d3.extent(data, (d: DSVRowString) => Number(d.newly_confirmed)))
+    let xScale: any = d3.scaleTime()
+        .domain(<Date[]>d3.extent(data, (d: DSVRowString) => new Date(String(d.Date)) ))
         .range([0, chartWidth]);
-    let xLabel: any = svg.append("g")
+    svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + Number(marginTop + chartHeight) + ")")
-        .call(d3.axisBottom(xScale));
-
-    xLabel.selectAll("text")
-        .attr("text-anchor", "middle")
-        .attr("font-size", "10px")
-        .attr("font-family", "Arial")
+        .call( d3.axisBottom(xScale).tickFormat(<any>d3.timeFormat("%y/%m/%d")) );
 
 
     // y axis
     let yScale: any = d3.scaleLinear()
-        .domain(<Number[]>d3.extent(data, (d: DSVRowString) => Number(d.severe_cases)))
+        .domain([ 0, Number(d3.max(data, (d: DSVRowString) => +Number(d.ALL) )) ])
         .range([chartHeight, 0]);
-    let yLabel: any = svg.append("g")
+    svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
         .call(d3.axisLeft(yScale));
 
-    yLabel.selectAll("text")
-        .attr("text-anchor", "end")
-        .attr("font-size", "10px")
-        .attr("font-family", "Arial")
 
-    svg.append("g")
-        .selectAll("dot")
-        .data(data)
-        .enter()
-        .append("circle")
-            .attr("cx", (d: DSVRowString) => xScale(d.newly_confirmed))
-            .attr("cy", (d: DSVRowString) => yScale(d.severe_cases))
-            .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
-            .attr("r", 3)
-            .attr("fill", "steelblue")
-            .attr("stroke", "none")
+    // 折線
+    const line: any = d3.line()
+        .x((d: any) => xScale(new Date(String(d.Date))))
+        .y((d: any) => yScale(Number(d.ALL)));
+
+    // 描画
+    svg.append("path")
+        .datum(data)
+        .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
+        .attr("fill", "none")
+        .attr("stroke", "steelblue")
+        .attr("stroke-width", 1.5)
+        .attr("d", line);
+
+
 }
