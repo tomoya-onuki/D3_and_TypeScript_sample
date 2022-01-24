@@ -39,7 +39,7 @@ function draw(data: DSVRowArray): void {
 
     // x axis
     let xScale: any = d3.scaleTime()
-        .domain(<any>d3.extent(data, (d) => new Date(String(d.Date)) ))
+        .domain(<Date[]>d3.extent(data, (d: DSVRowString) => new Date(String(d.Date)) ))
         .range([0, chartWidth]);
     svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + Number(marginTop + chartHeight) + ")")
