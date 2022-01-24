@@ -23,10 +23,9 @@ function init(): void {
         .attr("height", height);
 
     // データの読み込み
-    d3.csv("./temperature.csv")
+    d3.csv("../data/newly_confirmed_severe_cases_20220123.csv")
         .then((data) => {
             draw(svg, data);
-
         })
         .catch((error) => {
             console.log(error)
@@ -40,7 +39,7 @@ function draw(svg: any, data: DSVRowArray): void {
 
     // x axis
     let xScale: any = d3.scaleLinear()
-        .domain([1, 12])
+        .domain(<Number[]>d3.extent(data, (d: DSVRowString) => Number(d.newly_confirmed)))
         .range([0, chartWidth]);
     let xLabel: any = svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + Number(marginTop + chartHeight) + ")")
@@ -51,17 +50,10 @@ function draw(svg: any, data: DSVRowArray): void {
         .attr("font-size", "10px")
         .attr("font-family", "Arial")
 
-    svg.append("text")
-        .attr("y", height - 10)
-        .attr("x", chartWidth / 2 + marginLeft)
-        .attr("text-anchor", "middle")
-        .attr("font-size", "10px")
-        .attr("font-family", "Arial")
-        .text("月")
 
     // y axis
     let yScale: any = d3.scaleLinear()
-        .domain([0, 30])
+        .domain(<Number[]>d3.extent(data, (d: DSVRowString) => Number(d.severe_cases)))
         .range([chartHeight, 0]);
     let yLabel: any = svg.append("g")
         .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
@@ -72,32 +64,15 @@ function draw(svg: any, data: DSVRowArray): void {
         .attr("font-size", "10px")
         .attr("font-family", "Arial")
 
-    svg.append("text")
-        .attr("y", height / 2)
-        .attr("x", 40)
-        .attr("text-anchor", "end")
-        .attr("font-size", "10px")
-        .attr("font-family", "Arial")
-        .text("気温(℃)")
-
-
-    const line: any = d3.line()
-        .x((d: any) => xScale(d.month))
-        .y((d: any) => yScale(d.temp));
-
-    svg.append("path")
-        .datum(data)
-        .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
-        .attr("fill", "none")
-        .attr("stroke", "steelblue")
-        .attr("stroke-width", 1.5)
-        .attr("d", line);
-
-    svg.append("text")
-        .attr("x", marginLeft)
-        .attr("y", marginTop - 10)
-        .attr("font-size", "10px")
-        .attr("text-anchor", "top")
-        .attr("font-family", "Arial")
-        .text("月平均気温の推移(東京都)");
+    svg.append("g")
+        .selectAll("dot")
+        .data(data)
+        .enter()
+        .append("circle")
+            .attr("cx", (d: DSVRowString) => xScale(d.newly_confirmed))
+            .attr("cy", (d: DSVRowString) => yScale(d.severe_cases))
+            .attr("transform", "translate(" + marginLeft + "," + marginTop + ")")
+            .attr("r", 3)
+            .attr("fill", "steelblue")
+            .attr("stroke", "none")
 }
