@@ -48,8 +48,13 @@
 1. コロプレス地図 / choropleth map
 1. 計量記号図 / Graduated Symbol Map
 
+
 ### f. インタラクション
 1. [Horizon Graph](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/f1_HorizonGraph)
+
+### g. テキストデータ
+1. [ワードクラウド](https://github.com/tomoya-onuki/D3_and_TypeScript_sample/tree/g1_WordCloud)
+
 
 ## Setup
 1. package.jsonの作成
